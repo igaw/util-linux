@@ -44,4 +44,10 @@ if build_libuuid
                      subdirs : 'uuid',
                      version : pc_version)
   install_headers('src/uuid.h', subdir : 'uuid')
+
+  libuuid_dep = declare_dependency(
+    include_directories: [dir_include, dir_libuuid],
+    dependencies: [socket_libs,
+                   build_libuuid ? [] : disabler()]
+  )
 endif
