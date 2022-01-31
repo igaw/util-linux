@@ -53,7 +53,7 @@ lib_fdisk_includes = [dir_include,
 lib__fdisk = static_library(
   '_fdisk',
   lib_fdisk_sources,
-  include_directories : lib_fdisk_includes,
+  include_directories : [lib_fdisk_includes, '..'],
   dependencies : build_libfdisk ? [] : disabler())
 
 lib_fdisk_static = static_library(

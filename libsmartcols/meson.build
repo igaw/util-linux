@@ -35,7 +35,7 @@ lib_smartcols = both_libraries(
   'smartcols',
   list_h,
   lib_smartcols_sources,
-  include_directories : [dir_include, dir_libsmartcols],
+  include_directories : [dir_include, dir_libsmartcols, '..'],
   link_depends : libsmartcols_sym,
   version : libsmartcols_version,
   link_args : ['-Wl,--version-script=@0@'.format(libsmartcols_sym_path)],

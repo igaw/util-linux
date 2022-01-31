@@ -20,7 +20,7 @@ endif
 python.extension_module(
   'pylibmount',
   pylibmount_sources,
-  include_directories : [dir_include, dir_libmount],
+  include_directories : [dir_include, dir_libmount, '../..'],
   subdir : 'libmount',
   link_with : lib_mount,
   dependencies : python.dependency(),

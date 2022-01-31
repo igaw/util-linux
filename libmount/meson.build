@@ -62,7 +62,8 @@ lib__mount = static_library(
   lib_mount_sources,
   include_directories : [dir_include,
                          dir_libmount,
-                         dir_libblkid])
+                         dir_libblkid,
+                         '..'])
 
 lib_mount_static = static_library(
   'mount',
@@ -77,7 +78,8 @@ lib_mount = library(
   link_whole : lib__mount,
   include_directories : [dir_include,
                          dir_libmount,
-                         dir_libblkid],
+                         dir_libblkid,
+                         '..'],
   link_depends : libmount_sym,
   version : libmount_version,
   link_args : ['-Wl,--version-script=@0@'.format(libmount_sym_path)],

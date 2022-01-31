@@ -134,7 +134,7 @@ lib_blkid = both_libraries(
   'blkid',
   list_h,
   lib_blkid_sources,
-  include_directories : [dir_include, dir_libblkid],
+  include_directories : [dir_include, dir_libblkid, '..'],
   link_depends : libblkid_sym,
   version : libblkid_version,
   link_args : ['-Wl,--version-script=@0@'.format(libblkid_sym_path)],

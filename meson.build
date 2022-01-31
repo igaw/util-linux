@@ -745,11 +745,7 @@ bison_gen = generator(
 meson_make_symlink = meson.current_source_dir() + '/tools/meson-make-symlink.sh'
 meson_make_manpage_stub = meson.current_source_dir() + '/tools/meson-make-manpage-stub.sh'
 
-config_h = configure_file(
-  output : 'config.h',
-  configuration : conf)
-
-add_project_arguments('-include', 'config.h', language : 'c')
+add_project_arguments('-include', 'private/config.h', language : 'c')
 
 manadocs = []
 manlinks = {}
@@ -757,6 +753,7 @@ manlinks = {}
 bashcompletions = []
 bashcompletionslinks = {}
 
+subdir('private')
 subdir('include')
 subdir('lib')
 subdir('libblkid')
@@ -778,7 +775,8 @@ includes = [dir_include,
             dir_libmount,
             dir_libfdisk,
             dir_libuuid,
-            dir_sys_utils]
+            dir_sys_utils
+           ]
 
 exes = []
 

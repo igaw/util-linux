@@ -30,7 +30,7 @@ lib_uuid = both_libraries(
   randutils_c,
   md5_c,
   sha1_c,
-  include_directories : [dir_include, dir_libuuid],
+  include_directories : [dir_include, dir_libuuid, '..'],
   link_depends : libuuid_sym,
   version : libuuid_version,
   link_args : ['-Wl,--version-script=@0@'.format(libuuid_sym_path)],
@@ -46,7 +46,7 @@ if build_libuuid
   install_headers('src/uuid.h', subdir : 'uuid')
 
   libuuid_dep = declare_dependency(
-    include_directories: [dir_include, dir_libuuid],
+    include_directories: [dir_include, dir_libuuid, '..'],
     dependencies: [socket_libs,
                    build_libuuid ? [] : disabler()]
   )

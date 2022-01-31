@@ -83,7 +83,7 @@ endif
 lib_common = static_library(
   'common',
   lib_common_sources,
-  include_directories : dir_include)
+  include_directories : [dir_include, '..'])
 
 
 lib_color_sources = files('''
@@ -95,5 +95,5 @@ lib_color_sources = files('''
 lib_tcolors = static_library(
   'tcolors',
   lib_color_sources,
-  include_directories : dir_include,
+  include_directories : [dir_include, '..'],
   dependencies : curses_libs)
